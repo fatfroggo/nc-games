@@ -15,9 +15,7 @@ const SingleReview = () => {
     }, [])
 
     return (
-      <div>
-        <ul>
-          <li className="single-review">
+        <section className="single-review">
             <h2 className="review-title">{singleReview.title}</h2>
             <p>{singleReview.review_body}</p>
             <img
@@ -30,9 +28,7 @@ const SingleReview = () => {
             <p>Votes: {singleReview.votes}</p>
             <p>Created at: {singleReview.created_at}</p>
             <Comments review_id={review_id} />
-          </li>
-        </ul>
-      </div>
+          </section>
     );
 }
 

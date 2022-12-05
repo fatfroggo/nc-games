@@ -9,8 +9,9 @@
 .App {
   text-align: center;
   background-color: #434640;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
+  padding: 5%;
 }
 
 
@@ -21,7 +22,7 @@
   background-color: #C57468;
   font-family: monospace;
   font-size: 20px;
-  margin: 2%;
+  margin: 5%;
   padding: 5px 8px;
   border-radius: 8px;
   text-decoration: none;
@@ -33,6 +34,7 @@ h1 {
   font-family: monospace;
   font-size: 50px;
   color: #F8F7F7;
+  margin-bottom: 2%;
 }
 
 
@@ -72,11 +74,16 @@ h1 {
 .single-review {
   display: flex;
   flex-direction: column;
-  margin: 5%;
-  box-shadow: 5px 5px 5px rgba(13, 12, 12, 0.358);
+  margin-top: 5%;
+  box-shadow: 5px 5px 5px rgba(13, 12, 12, 0.358); 
   background-color: #A9A697;
   font-family: monospace;
   color: #F8F7F7;
+}
+
+.review-title {
+  margin-top: 5%;
+  margin-bottom: 4%;
 }
 
 .review-comments {
