@@ -43,7 +43,6 @@ h1 {
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
 .review-item {
@@ -63,5 +62,32 @@ h1 {
   max-height: 200px;
   max-width: 280px;
   border-radius: 10%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+
+/* single review page */
+.single-review {
+  display: flex;
+  flex-direction: column;
   margin: 5%;
+  box-shadow: 5px 5px 5px rgba(13, 12, 12, 0.358);
+  background-color: #A9A697;
+  font-family: monospace;
+  color: #F8F7F7;
+}
+
+.review-comments {
+  margin-top: 5%;
+}
+
+.comment-list {
+  list-style: none;
+  margin-top: 3%;
+}
+
+.singleComment {
+  margin-bottom: 3%;
 }
