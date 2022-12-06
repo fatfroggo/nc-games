@@ -28,11 +28,13 @@ const Reviews = () => {
               <p>Category: {review.category}</p>
               <p>Votes: {review.votes}</p>
               <p>Created at: {review.created_at}</p>
+              <div className="button-container">
               <Link to={`/reviews/${review.review_id}`}>
                 <button className="button">
                   More Info
                 </button>
               </Link>
+              </div>
             </div>
           </li>
         );

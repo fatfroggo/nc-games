@@ -40,3 +40,26 @@ export const getUsers = () => {
     return res.data.users
   })
 }
+
+export const addVotes = (review_id) => {
+
+  const patchBody = {
+    incVotes: 1
+  }
+
+  return gamesReviewsApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
+    return res.data
+  })
+}
+
+export const removeVotes = (review_id) => {
+  const patchBody = {
+    incVotes: -1,
+  };
+
+  return gamesReviewsApi
+    .patch(`/reviews/${review_id}`, patchBody)
+    .then((res) => {
+      return res.data;
+    });
+};
