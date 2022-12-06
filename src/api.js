@@ -21,3 +21,22 @@ export const getCommentsById = (review_id) => {
         return res.data.comments;
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const getUsers = () => {
+  return gamesReviewsApi.get("/users").then((res) => {
+    return res.data.users
+  })
+}
