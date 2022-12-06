@@ -62,3 +62,7 @@ export const addComment = (newComment, review_id, user) => {
   }
   )
 };
+
+export const deleteComment = (comment_id) => {
+  return gamesReviewsApi.delete(`/comments/${comment_id}`)
+}
