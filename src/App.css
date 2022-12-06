@@ -125,3 +125,10 @@ h1 {
 .voting-buttons {
   margin: 5px;
 }
+
+.user-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 33% 33% 33%;
+}
