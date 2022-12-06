@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getCategories } from "../api";
 
-const CategorySort = ({setSelectedCategory}) => {
+const CategorySort = ({setSelectedCategory, setSearchParams}) => {
 
     const [categories, setCategories] = useState([])
-
-    
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value)
@@ -25,7 +24,11 @@ const CategorySort = ({setSelectedCategory}) => {
       >
         <option value="All">All</option>
         {categories.map((category) => {
-            return <option key={category.slug} value={category.slug}>{category.slug}</option>
+            return (
+                <option key={category.slug} value={category.slug}>
+                  {category.slug}
+                </option>
+            );
         })}
       </select>
     );

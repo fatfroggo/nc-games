@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getReviews, getReviewsByCategory } from "../api";
 import CategorySort from "./CategorySort";
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+   const [searchParams, setSearchParams] = useSearchParams()
 
   useEffect(() => {
     if(selectedCategory === "All") {
@@ -21,7 +22,7 @@ const Reviews = () => {
 
   return (
     <div>
-    <CategorySort setSelectedCategory={setSelectedCategory}/>
+    <CategorySort setSelectedCategory={setSelectedCategory} setSearchParams={setSearchParams}/>
     <ul className="review-list">
       {reviewsList.map((review) => {
         return (
