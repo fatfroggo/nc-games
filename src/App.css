@@ -49,7 +49,7 @@ h1 {
 
 .review-item {
   width: 350px;
-  height: 400px;
+  /* height: 410px; */
   margin: 1.5rem;
   box-shadow: 5px 5px 5px rgba(13, 12, 12, 0.358);
   background-color: #A9A697;
@@ -67,6 +67,21 @@ h1 {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+.button {
+  border: none;
+  color: aliceblue;
+  background-color: #C57468;
+  font-family: monospace;
+  font-size: 15px;
+  padding: 3px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.button-container {
+  margin: 5%;
 }
 
 
@@ -98,3 +113,9 @@ h1 {
 .singleComment {
   margin-bottom: 3%;
 }
+
+.loading-img {
+  width: 200px;
+  justify-content: center;
+}
+

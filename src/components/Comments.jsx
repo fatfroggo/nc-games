@@ -4,12 +4,25 @@ import "../App.css";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     getCommentsById(review_id).then((comments) => {
       setComments(comments);
+      setLoading(false)
     });
   }, [review_id]);
+
+  if (isLoading) {
+    return (
+      <main>
+        <img className="loading-img"
+          src="https://www.superiorlawncareusa.com/wp-content/uploads/2020/05/loading-gif-png-5.gif"
+          alt="loading-bar"
+        ></img>
+      </main>
+    );
+  }
 
   return (
     <div className="review-comments">
