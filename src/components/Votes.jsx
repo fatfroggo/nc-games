@@ -12,15 +12,15 @@ const Votes = ({ review_id, currentVotes, setVotes }) => {
     removeVotes(review_id)
   }
   return (
-    <div>
-      <button
+    <div className="voting-buttons">
+      <button className="button"
         onClick={() => {
           handleAddVotes();
         }}
       >
         👍
       </button>
-      <button
+      <button className="button"
         onClick={() => {
           handleRemoveVotes();
         }}

@@ -78,6 +78,7 @@ h1 {
   padding: 3px 5px;
   border-radius: 8px;
   text-decoration: none;
+  margin: 2px;
 }
 
 .button-container {
@@ -119,3 +120,8 @@ h1 {
   justify-content: center;
 }
 
+/* votes */
+
+.voting-buttons {
+  margin: 5px;
+}
