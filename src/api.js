@@ -63,3 +63,15 @@ export const removeVotes = (review_id) => {
       return res.data;
     });
 };
+
+export const getCategories = () => {
+  return gamesReviewsApi.get("/categories").then((res) => {
+    return res.data.categories
+  })
+}
+
+export const getReviewsByCategory = (category) => {
+  return gamesReviewsApi.get(`/reviews?category=${category}`).then((res) => {
+    return res.data.reviews
+  })
+}

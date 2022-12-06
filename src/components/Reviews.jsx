@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getReviews } from "../api";
+import { getReviews, getReviewsByCategory } from "../api";
+import CategorySort from "./CategorySort";
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
+    if(selectedCategory === "All") {
     getReviews().then((reviews) => {
       setReviewsList(reviews);
-    });
-  }, []);
+    })}
+    else{
+      getReviewsByCategory(selectedCategory).then((categorisedReviews) => {
+        setReviewsList(categorisedReviews)
+      })
+    }
+  }, [selectedCategory]);
 
   return (
+    <div>
+    <CategorySort setSelectedCategory={setSelectedCategory}/>
     <ul className="review-list">
       {reviewsList.map((review) => {
         return (
-          <li className="review-item" key={review.created_at}>
+          <li className="review-item" key={review.review_id}>
             <div className="content">
               <h2 className="review-title">{review.title}</h2>
               <img
@@ -40,6 +50,7 @@ const Reviews = () => {
         );
       })}
     </ul>
+    </div>
   );
 };
 
