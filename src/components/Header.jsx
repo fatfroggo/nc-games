@@ -1,5 +1,17 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
+
+
 const Header = () => {
-    return <h1>NC Games</h1>
+
+    const {user} = useContext(UserContext)
+    console.log(user)
+    return (
+        <main className="header">
+    <h1>NC Games</h1>
+    <p>Logged in as: {user.username}</p>
+    </main>
+    )
 }
 
 export default Header;

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCommentsById } from "../api";
 import "../App.css";
+import CommentAdder from "./CommentAdder";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(true)
+
 
   useEffect(() => {
     getCommentsById(review_id).then((comments) => {
@@ -12,6 +14,7 @@ const Comments = ({ review_id }) => {
       setLoading(false)
     });
   }, [review_id]);
+
 
   if (isLoading) {
     return (
@@ -38,6 +41,7 @@ const Comments = ({ review_id }) => {
           );
         })}
       </ul>
+      <CommentAdder review_id={review_id} setComments={setComments}/>
     </div>
   );
 };
