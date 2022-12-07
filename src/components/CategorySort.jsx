@@ -1,23 +1,30 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { getCategories } from "../api";
 
-const CategorySort = ({setSelectedCategory, setSearchParams}) => {
+const CategorySort = ({setSelectedCategory, selectedCategory}) => {
 
-    const [categories, setCategories] = useState([])
-
-    const handleCategoryChange = (event) => {
+  const [categories, setCategories] = useState([])
+  const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
+  
+  const handleCategoryChange = (event) => {
+    if(!event.target.value) {
+      navigate("/")
+      setSelectedCategory("")
+    }
+    else {
         setSelectedCategory(event.target.value)
-        window.history.replaceState(
-          null,
-          "New Page Title",
-          `/reviews?category=${event.target.value}`
-        );
+        setSearchParams({ category: event.target.value })
+    }
     }
 
     useEffect(() => {
         getCategories().then((categories) => {
             setCategories(categories)
+            if(searchParams.get("category")) {
+              setSelectedCategory(searchParams.get("category"))
+            }
         })
     }, [])
 
@@ -25,15 +32,17 @@ const CategorySort = ({setSelectedCategory, setSearchParams}) => {
       <select
         name="category-list"
         className="category-list"
+        value={selectedCategory}
         onChange={handleCategoryChange}
       >
-        <option value="All">All</option>
+        <option value="">All</option>
+
         {categories.map((category) => {
-            return (
-                <option key={category.slug} value={category.slug}>
-                  {category.slug}
-                </option>
-            );
+          return (
+            <option key={category.slug} value={category.slug}>
+              {category.slug}
+            </option>
+          );
         })}
       </select>
     );
