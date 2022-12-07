@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getCommentsById } from "../api";
 import "../App.css";
+import { UserContext } from "../contexts/User";
+import CommentAdder from "./CommentAdder";
+import CommentDelete from "./CommentDeleter";
 
 const Comments = ({ review_id }) => {
+  const {user} = useContext(UserContext)
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(true)
+
 
   useEffect(() => {
     getCommentsById(review_id).then((comments) => {
@@ -12,6 +17,7 @@ const Comments = ({ review_id }) => {
       setLoading(false)
     });
   }, [review_id]);
+
 
   if (isLoading) {
     return (
@@ -34,10 +40,12 @@ const Comments = ({ review_id }) => {
               <p>{comment.body}</p>
               <p>User: {comment.author}</p>
               <p>Created at: {comment.created_at}</p>
+              {user.username === comment.author ? <CommentDelete comment_id = {comment.comment_id} setComments={setComments}/> : ""}
             </li>
           );
         })}
       </ul>
+      <CommentAdder review_id={review_id} setComments={setComments}/>
     </div>
   );
 };

@@ -37,6 +37,10 @@ h1 {
   margin-bottom: 2%;
 }
 
+.header {
+  margin-bottom: 3%;
+}
+
 
 /* Reviews */
 .review-list {
@@ -126,11 +130,29 @@ h1 {
   margin: 5px;
 }
 
+/* users */
+
 .user-list {
+  margin-top: 5%;
+  height: 100%;
   list-style: none;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 33% 33% 33%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.individual-user {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  font-family: monospace;
+  color: #F8F7F7;
+}
+
+.category-list {
+  margin-top: 3%;
+  background-color:#A9A697;
+  font-size: 20px;
 }
 
 .category-list {
