@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { addVotes, removeVotes } from "../api";
 
 const Votes = ({ review_id, currentVotes, setVotes }) => {

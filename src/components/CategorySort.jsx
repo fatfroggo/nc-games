@@ -8,6 +8,11 @@ const CategorySort = ({setSelectedCategory, setSearchParams}) => {
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value)
+        window.history.replaceState(
+          null,
+          "New Page Title",
+          `/reviews?category=${event.target.value}`
+        );
     }
 
     useEffect(() => {
