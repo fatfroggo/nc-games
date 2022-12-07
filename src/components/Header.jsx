@@ -5,7 +5,6 @@ import { UserContext } from "../contexts/User";
 const Header = () => {
 
     const {user} = useContext(UserContext)
-    console.log(user)
     return (
         <main className="header">
     <h1>NC Games</h1>

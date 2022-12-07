@@ -11,7 +11,6 @@ const [newComment, setNewComment] = useState("");
 const handleSubmit = (e) => {
     e.preventDefault()
     setComments((currentComments) => {
-        console.log(newComment)
       const newComments = [...currentComments];
       newComments.unshift({ body: newComment, author: user.username, created_at: new Date().toJSON(), comment_id: currentComments.length + 1});
       return newComments;
@@ -24,12 +23,12 @@ const handleSubmit = (e) => {
 return (
 <form className="comment-adder" onSubmit={handleSubmit}>
   <label htmlFor="newComment">Add a comment</label>
-  <input
+  <textarea
     id="newComment"
     value={newComment}
     onChange={(e) => setNewComment(e.target.value)}
     required
-  ></input>
+  ></textarea>
   <button>Add</button>
 </form>
 )
