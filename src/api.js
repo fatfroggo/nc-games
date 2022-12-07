@@ -22,6 +22,12 @@ export const getCommentsById = (review_id) => {
     })
 }
 
+export const getUsers = () => {
+  return gamesReviewsApi.get("/users").then((res) => {
+    return res.data.users
+  })
+}
+
 export const addVotes = (review_id) => {
 
   const patchBody = {
@@ -44,3 +50,19 @@ export const removeVotes = (review_id) => {
       return res.data;
     });
 };
+
+export const addComment = (newComment, review_id, user) => {
+  const postBody = {
+    username: user.username,
+    body: newComment
+  }
+
+  return gamesReviewsApi.post(`/reviews/${review_id}/comments`, postBody).then((res) => {
+    return res.data.comment
+  }
+  )
+};
+
+export const deleteComment = (comment_id) => {
+  return gamesReviewsApi.delete(`/comments/${comment_id}`)
+}

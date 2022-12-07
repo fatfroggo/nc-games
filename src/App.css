@@ -37,6 +37,10 @@ h1 {
   margin-bottom: 2%;
 }
 
+.header {
+  margin-bottom: 3%;
+}
+
 
 /* Reviews */
 .review-list {
@@ -124,4 +128,23 @@ h1 {
 
 .voting-buttons {
   margin: 5px;
+}
+
+/* users */
+
+.user-list {
+  margin-top: 5%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.individual-user {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  font-family: monospace;
+  color: #F8F7F7;
 }
