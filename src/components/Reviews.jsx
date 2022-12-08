@@ -6,8 +6,8 @@ import SortReviews from "./SortReviews";
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [sortedBy, setSortedBy] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
+  const [sortedBy, setSortedBy] = useState(undefined)
 
   useEffect(() => {
     getReviews(selectedCategory, sortedBy).then((reviews) => {
