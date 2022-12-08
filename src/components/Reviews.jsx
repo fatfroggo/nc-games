@@ -2,22 +2,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getReviews } from "../api";
 import CategorySort from "./CategorySort";
-import SortReviews from "./SortReviews";
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [sortedBy, setSortedBy] = useState("")
 
   useEffect(() => {
-    getReviews(selectedCategory, sortedBy).then((reviews) => {
+    getReviews(selectedCategory).then((reviews) => {
       setReviewsList(reviews);
     })
-  }, [selectedCategory, sortedBy]);
+  }, [selectedCategory]);
 
   return (
     <div>
-    <SortReviews sortedBy={sortedBy} setSortedBy={setSortedBy}/>
     <CategorySort setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
     <ul className="review-list">
       {reviewsList.map((review) => {
