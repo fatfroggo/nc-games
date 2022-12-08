@@ -155,8 +155,15 @@ h1 {
   font-size: 20px;
 }
 
-.category-list {
+.sort-list {
   margin-top: 3%;
   background-color:#A9A697;
   font-size: 20px;
+  margin-right: 5%;
+}
+
+.err-msg {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: white;
 }

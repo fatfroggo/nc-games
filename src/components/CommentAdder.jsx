@@ -5,7 +5,6 @@ import { UserContext } from '../contexts/User';
 const CommentAdder = ({review_id, setComments}) => {
 
 const {user} = useContext(UserContext)
-
 const [newComment, setNewComment] = useState("");
 
 const handleSubmit = (e) => {
@@ -15,12 +14,13 @@ const handleSubmit = (e) => {
       newComments.unshift({ body: newComment, author: user.username, created_at: new Date().toJSON(), comment_id: currentComments.length + 1});
       return newComments;
     });
-    addComment(newComment, review_id, user).then((comment) => {
+    addComment(newComment, "purple", user).then((comment) => {
         setNewComment('')
     })
 }
 
 return (
+
 <form className="comment-adder" onSubmit={handleSubmit}>
   <label htmlFor="newComment">Add a comment</label>
   <textarea
