@@ -155,8 +155,9 @@ h1 {
   font-size: 20px;
 }
 
-.category-list {
+.sort-list {
   margin-top: 3%;
   background-color:#A9A697;
   font-size: 20px;
+  margin-right: 5%;
 }
