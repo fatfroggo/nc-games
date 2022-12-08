@@ -35,7 +35,9 @@ const CategorySort = ({setSelectedCategory, selectedCategory}) => {
         value={selectedCategory}
         onChange={handleCategoryChange}
       >
-        <option value="">All</option>
+        <option value="">
+          -- Category --
+        </option>
 
         {categories.map((category) => {
           return (

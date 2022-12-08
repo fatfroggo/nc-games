@@ -5,7 +5,8 @@ import CategorySort from "./CategorySort";
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
+  const [sortedBy, setSortedBy] = useState(undefined)
 
   useEffect(() => {
     getReviews(selectedCategory).then((reviews) => {
