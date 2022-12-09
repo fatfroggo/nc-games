@@ -124,6 +124,17 @@ h1 {
   justify-content: center;
 }
 
+.comment-adder {
+  font-size: 20px;
+  margin: 5%;
+}
+
+.newComment {
+  background-color: #F8F7F7;
+  border: none;
+  margin-right: 1%;
+}
+
 /* votes */
 
 .voting-buttons {
@@ -155,8 +166,19 @@ h1 {
   font-size: 20px;
 }
 
-.category-list {
+.sort-list {
   margin-top: 3%;
   background-color:#A9A697;
   font-size: 20px;
+  margin-right: 5%;
+}
+
+.err-msg {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: white;
+}
+
+.err-img {
+  width: 70%;
 }

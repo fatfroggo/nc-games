@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from "react"
 import { getUsers } from "../api"
 import { UserContext } from "../contexts/User"
 
-const Users = () => {
+const Users = ({setErrorMessage}) => {
 
     const [users, setUsers] = useState([])
-    const { user, setUser } = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
 
-    useEffect(() => {
+    useEffect((setErrorMessage) => {
         getUsers().then((users) => {
             setUsers(users)
         })

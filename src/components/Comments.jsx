@@ -5,13 +5,13 @@ import { UserContext } from "../contexts/User";
 import CommentAdder from "./CommentAdder";
 import CommentDelete from "./CommentDeleter";
 
-const Comments = ({ review_id }) => {
+const Comments = ({ review_id, setErrorMessage }) => {
   const {user} = useContext(UserContext)
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(true)
 
 
-  useEffect(() => {
+  useEffect((setErrorMessage) => {
     getCommentsById(review_id).then((comments) => {
       setComments(comments);
       setLoading(false)
