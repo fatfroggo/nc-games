@@ -4,13 +4,13 @@ const gamesReviewsApi = axios.create({
   baseURL: "https://fatfroggo-games-database.cyclic.app/api",
 });
 
-export const getReviews = (category, sorted_by, setErrorMessage) => {
+export const getReviews = (category, sorted_by) => {
   return gamesReviewsApi.get("/reviews", { params: { category : category, sort_by: sorted_by}}).then((res) => {
     return res.data.reviews;
   })
 };
 
-export const getReviewById = (review_id, setErrorMessage) => {
+export const getReviewById = (review_id) => {
   return gamesReviewsApi
     .get(`/reviews/${review_id}`)
     .then((res) => {
@@ -18,7 +18,7 @@ export const getReviewById = (review_id, setErrorMessage) => {
     })
 };
 
-export const getCommentsById = (review_id, setErrorMessage) => {
+export const getCommentsById = (review_id) => {
   return gamesReviewsApi
     .get(`/reviews/${review_id}/comments`)
     .then((res) => {
@@ -26,7 +26,7 @@ export const getCommentsById = (review_id, setErrorMessage) => {
     })
 };
 
-export const getUsers = (setErrorMessage) => {
+export const getUsers = () => {
   return gamesReviewsApi
     .get("/users")
     .then((res) => {
@@ -34,7 +34,7 @@ export const getUsers = (setErrorMessage) => {
     })
 };
 
-export const addVotes = (review_id, setErrorMessage) => {
+export const addVotes = (review_id) => {
   const patchBody = {
     incVotes: 1,
   };
@@ -46,7 +46,7 @@ export const addVotes = (review_id, setErrorMessage) => {
     })
 };
 
-export const removeVotes = (review_id, setErrorMessage) => {
+export const removeVotes = (review_id) => {
   const patchBody = {
     incVotes: -1,
   };
@@ -58,7 +58,7 @@ export const removeVotes = (review_id, setErrorMessage) => {
     })
 };
 
-export const getCategories = (setErrorMessage) => {
+export const getCategories = () => {
   return gamesReviewsApi
     .get("/categories")
     .then((res) => {
@@ -66,7 +66,7 @@ export const getCategories = (setErrorMessage) => {
     })
 };
 
-export const addComment = (newComment, review_id, user, setErrorMessage) => {
+export const addComment = (newComment, review_id, user) => {
   const postBody = {
     username: user.username,
     body: newComment,
@@ -79,8 +79,7 @@ export const addComment = (newComment, review_id, user, setErrorMessage) => {
     })
 };
 
-export const deleteComment = (comment_id, setErrorMessage) => {
-  return gamesReviewsApi.delete(`/comments/${comment_id}`).catch((err) => {
-    setErrorMessage(err);
-  });
+export const deleteComment = (comment_id) => {
+  return gamesReviewsApi.delete(`/comments/${comment_id}`)
+  
 };

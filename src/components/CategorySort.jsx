@@ -19,7 +19,7 @@ const CategorySort = ({setSelectedCategory, selectedCategory}) => {
     }
     }
 
-    useEffect((setErrorMessage) => {
+    useEffect(() => {
         getCategories().then((categories) => {
             setCategories(categories)
             if(searchParams.get("category")) {

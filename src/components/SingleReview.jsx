@@ -4,7 +4,7 @@ import { getReviewById } from "../api"
 import Comments from "./Comments"
 import Votes from "./Votes"
 
-const SingleReview = ({ setErrorMessage }) => {
+const SingleReview = () => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
   const [currentVotes, setVotes] = useState();
@@ -40,7 +40,7 @@ const SingleReview = ({ setErrorMessage }) => {
         />
       </section>
       <p>Created at: {singleReview.created_at}</p>
-      <Comments review_id={review_id} setErrorMessage={setErrorMessage}/>
+      <Comments review_id={review_id}/>
     </section>
   );
 };

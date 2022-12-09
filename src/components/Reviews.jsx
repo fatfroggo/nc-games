@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getReviews } from "../api";
 import CategorySort from "./CategorySort";
 import SortReviews from "./SortReviews";
@@ -9,13 +9,17 @@ const Reviews = ({ setErrorMessage }) => {
   const [selectedCategory, setSelectedCategory] = useState(undefined);
   const [sortedBy, setSortedBy] = useState(undefined);
   const [reviewsLoading, setReviewsLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(
     () => {
       getReviews(selectedCategory, sortedBy).then((reviews) => {
         setReviewsList(reviews);
         setReviewsLoading(false)
-      });
+      })
+      .catch((err) => {
+        navigate("/invalidRequest")
+      })
     },
     [selectedCategory, sortedBy]
   );

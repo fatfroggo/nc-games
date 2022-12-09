@@ -14,7 +14,7 @@ const handleSubmit = (e) => {
       newComments.unshift({ body: newComment, author: user.username, created_at: new Date().toJSON(), comment_id: currentComments.length + 1});
       return newComments;
     });
-    addComment(newComment, "purple", user).then((comment) => {
+    addComment(newComment, review_id, user).then((comment) => {
         setNewComment('')
     })
 }
