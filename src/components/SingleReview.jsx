@@ -18,7 +18,7 @@ const SingleReview = () => {
     .catch((err) => {
       navigate("/invalid_id")
     })
-  }, []);
+  }, [navigate, review_id]);
 
   return (
     <section className="single-review">

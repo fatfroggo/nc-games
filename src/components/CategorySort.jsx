@@ -26,7 +26,7 @@ const CategorySort = ({setSelectedCategory, selectedCategory}) => {
               setSelectedCategory(searchParams.get("category"))
             }
         })
-    }, [])
+    }, [searchParams, setSelectedCategory])
 
     return (
       <select

@@ -21,7 +21,7 @@ const Reviews = ({ setErrorMessage }) => {
         navigate("/invalidRequest")
       })
     },
-    [selectedCategory, sortedBy]
+    [selectedCategory, sortedBy, navigate]
   );
 
    if (reviewsLoading) {
