@@ -18,13 +18,21 @@ In order to run this project locally, please run the command
 
 in your terminal, to clone the repo into a folder of your choice on your local device. Following this, ensure the repository has been initialised by running 
 
-```npm itit -y```
+```npm init -y```
 
 ## Installing dependencies 
 
 Please ensure all dependencies are installed in order to utilise the repo.
 
-``` npm i```
+```npm install axios```
+```npm i react-router-dom```
+```npm i```
+
+## Running the App
+
+In order to run the react app, please run:
+
+```npm start```
 
 ## Minimum Requirements 
 
