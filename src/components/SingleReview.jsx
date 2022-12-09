@@ -16,7 +16,7 @@ const SingleReview = ({ setErrorMessage }) => {
       setVotes(review.votes);
     })
     .catch((err) => {
-      navigate("/*")
+      navigate("/invalid_id")
     })
   }, []);
 
