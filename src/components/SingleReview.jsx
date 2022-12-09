@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getReviewById } from "../api"
 import Comments from "./Comments"
 import Votes from "./Votes"
@@ -8,12 +8,16 @@ const SingleReview = ({ setErrorMessage }) => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
   const [currentVotes, setVotes] = useState();
+  const navigate = useNavigate()
 
   useEffect(() => {
     getReviewById(review_id).then((review) => {
       setSingleReview(review);
       setVotes(review.votes);
-    });
+    })
+    .catch((err) => {
+      navigate("/*")
+    })
   }, []);
 
   return (

@@ -22,14 +22,15 @@ const handleSubmit = (e) => {
 return (
 
 <form className="comment-adder" onSubmit={handleSubmit}>
-  <label htmlFor="newComment">Add a comment</label>
+  <label htmlFor="newComment">Add a comment:   </label>
   <textarea
+    className='newComment'
     id="newComment"
     value={newComment}
     onChange={(e) => setNewComment(e.target.value)}
     required
   ></textarea>
-  <button>Add</button>
+  <button className='button'>Add</button>
 </form>
 )
 }

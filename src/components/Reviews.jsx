@@ -8,15 +8,28 @@ const Reviews = ({ setErrorMessage }) => {
   const [reviewsList, setReviewsList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(undefined);
   const [sortedBy, setSortedBy] = useState(undefined);
+  const [reviewsLoading, setReviewsLoading] = useState(true)
 
   useEffect(
     () => {
       getReviews(selectedCategory, sortedBy).then((reviews) => {
         setReviewsList(reviews);
+        setReviewsLoading(false)
       });
     },
     [selectedCategory, sortedBy]
   );
+
+   if (reviewsLoading) {
+    return (
+      <main>
+        <img className="loading-img"
+          src="https://www.superiorlawncareusa.com/wp-content/uploads/2020/05/loading-gif-png-5.gif"
+          alt="loading-bar"
+        ></img>
+      </main>
+    );
+  }
 
   return (
     <div>
