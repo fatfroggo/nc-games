@@ -41,6 +41,12 @@ h1 {
   margin-bottom: 3%;
 }
 
+.log-in {
+  color: white;
+  font-family: monospace;
+  font-size: 15px;
+}
+
 
 /* Reviews */
 .review-list {

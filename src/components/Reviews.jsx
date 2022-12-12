@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getReviews } from "../api";
 import CategorySort from "./CategorySort";
+import Pages from "./Pages";
 import SortReviews from "./SortReviews";
 
 const Reviews = ({ setErrorMessage }) => {
@@ -10,10 +11,11 @@ const Reviews = ({ setErrorMessage }) => {
   const [sortedBy, setSortedBy] = useState(undefined);
   const [reviewsLoading, setReviewsLoading] = useState(true)
   const navigate = useNavigate()
+  const [page, setPage] = useState(1)
 
   useEffect(
     () => {
-      getReviews(selectedCategory, sortedBy).then((reviews) => {
+      getReviews(selectedCategory, sortedBy, page).then((reviews) => {
         setReviewsList(reviews);
         setReviewsLoading(false)
       })
@@ -21,7 +23,7 @@ const Reviews = ({ setErrorMessage }) => {
         navigate("/invalidRequest")
       })
     },
-    [selectedCategory, sortedBy, navigate]
+    [selectedCategory, sortedBy, navigate, page]
   );
 
    if (reviewsLoading) {
@@ -67,6 +69,7 @@ const Reviews = ({ setErrorMessage }) => {
           );
         })}
       </ul>
+      <Pages page={page} setPage={setPage} reviewsList={reviewsList} selectedCategory={selectedCategory}/>
     </div>
   );
 };

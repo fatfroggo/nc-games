@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <main className="header">
     <h1>NC Games</h1>
-    <p>Logged in as: {user.username}</p>
+    <p className="log-in">Logged in as: {user.username}</p>
     </main>
     )
 }

@@ -4,8 +4,10 @@ const gamesReviewsApi = axios.create({
   baseURL: "https://fatfroggo-games-database.cyclic.app/api",
 });
 
-export const getReviews = (category, sorted_by) => {
-  return gamesReviewsApi.get("/reviews", { params: { category : category, sort_by: sorted_by}}).then((res) => {
+export const getReviews = (category, sorted_by, page) => {
+  console.log(page)
+  console.log('hi')
+  return gamesReviewsApi.get("/reviews", { params: { category : category, sort_by: sorted_by, p: page}}).then((res) => {
     return res.data.reviews;
   })
 };
